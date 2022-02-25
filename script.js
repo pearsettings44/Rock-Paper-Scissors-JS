@@ -1,9 +1,12 @@
 function computerPlay() {
+  // computerPlay(): gets the computer play move (rock/paper/scissors).
   const rps = ["rock", "paper", "scissors"];
   return rps[Math.floor(Math.random() * rps.length)];
 }
 
 function playRound(playerSelection, computerSelection) {
+  // playRound(playerSelection, computerSelection): gets the winner of the round.
+  // using .toLowerCase() to accept any form of input from user (i.e: rock/ROCK/RoCk)
   playerSelection = playerSelection.toLowerCase();
   if (playerSelection === computerSelection) {
     return `You both played ${playerSelection}! IT'S A DRAW!`;
@@ -23,6 +26,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  // game(): plays 5 win or lose rounds.
   playerScore = 0;
   computerScore = 0;
 
@@ -36,6 +40,7 @@ function game() {
     } else if (result.includes("LOST")) {
       computerScore++;
     } else {
+      // in case of a draw, decrement the round variable to "rematch" that round.
       round--;
     }
   }
