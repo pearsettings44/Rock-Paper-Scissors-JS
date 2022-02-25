@@ -23,9 +23,22 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  playerScore = 0;
+  computerScore = 0;
+
   for (let round = 0; round < 5; round++) {
     playerSelection = prompt("Your move:");
     computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    result = playRound(playerSelection, computerSelection);
+    console.log(result);
+    if (result.includes("WON")) {
+      playerScore++;
+    } else if (result.includes("LOST")) {
+      computerScore++;
+    } else {
+      round--;
+    }
   }
+  let gameWinner = playerScore > computerScore ? "YOU WONNN!" : "YOU LOST :(";
+  return gameWinner;
 }
