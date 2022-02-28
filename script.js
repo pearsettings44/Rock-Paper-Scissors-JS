@@ -25,6 +25,15 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+const rockButton = document.querySelector("#rock");
+rockButton.addEventListener("click", () => playRound("rock", computerPlay()));
+
+const paperButton = document.querySelector("#paper");
+paperButton.addEventListener("click", () => playRound("paper", computerPlay()));
+
+const scissorsButton = document.querySelector("#scissors");
+scissorsButton.addEventListener("click", () => playRound("scissors", computerPlay()));
+/*
 function game() {
   // game(): plays 5 win or lose rounds.
   playerScore = 0;
@@ -46,4 +55,4 @@ function game() {
   }
   let gameWinner = playerScore > computerScore ? "YOU WONNN!" : "YOU LOST :(";
   return gameWinner;
-}
+}*/
