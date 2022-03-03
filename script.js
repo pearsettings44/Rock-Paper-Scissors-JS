@@ -18,7 +18,7 @@ function win(playerchoice, computerchoice) {
   playerScore++;
   playerScoreElement.textContent = playerScore;
   result.textContent = `${playerchoice} beats ${computerchoice}. You win!`;
-  glow = document.getElementById(playerchoice)
+  glow = document.getElementById(playerchoice);
   glow.classList.add("winGlow");
   setTimeout(() => glow.classList.remove("winGlow"), 300);
 }
@@ -27,14 +27,14 @@ function lose(playerchoice, computerchoice) {
   computerScore++;
   computerScoreElement.textContent = computerScore;
   result.textContent = `${computerchoice} beats ${playerchoice}. You lose!`;
-  glow = document.getElementById(playerchoice)
+  glow = document.getElementById(playerchoice);
   glow.classList.add("loseGlow");
   setTimeout(() => glow.classList.remove("loseGlow"), 300);
 }
 
 function draw(playerchoice) {
   result.textContent = `You both played ${playerchoice}. It's a draw!`;
-  glow = document.getElementById(playerchoice)
+  glow = document.getElementById(playerchoice);
   glow.classList.add("drawGlow");
   setTimeout(() => glow.classList.remove("drawGlow"), 300);
 }
@@ -93,26 +93,3 @@ function main() {
 }
 
 main();
-
-function game() {
-  // game(): plays 5 win or lose rounds.
-  playerScore = 0;
-  computerScore = 0;
-
-  for (let round = 0; round < 5; round++) {
-    playerSelection = prompt("Your move:");
-    computerSelection = computerPlay();
-    result = playRound(playerSelection, computerSelection);
-    console.log(result);
-    if (result.includes("WON")) {
-      playerScore++;
-    } else if (result.includes("LOST")) {
-      computerScore++;
-    } else {
-      // in case of a draw, decrement the round variable to "rematch" that round.
-      round--;
-    }
-  }
-  let gameWinner = playerScore > computerScore ? "YOU WONNN!" : "YOU LOST :(";
-  return gameWinner;
-}
