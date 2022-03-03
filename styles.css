@@ -125,3 +125,18 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
+.winGlow {
+  border: 4px solid greenyellow;
+  box-shadow: 0 0 10px green;
+}
+
+.loseGlow {
+  border: 4px solid rgb(255, 0, 0);
+  box-shadow: 0 0 10px rgb(119, 0, 0);
+}
+
+.drawGlow {
+  border: 4px solid rgb(29, 0, 41);
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+}

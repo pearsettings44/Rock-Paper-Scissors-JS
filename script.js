@@ -30,21 +30,29 @@ function computerPlay() {
   return rps[Math.floor(Math.random() * rps.length)];
 }
 
-
 function win(playerchoice, computerchoice) {
   playerScore++;
   playerScoreElement.textContent = playerScore;
   result.textContent = `${playerchoice} beats ${computerchoice}. You win!`;
+  glow = document.getElementById(playerchoice)
+  glow.classList.add("winGlow");
+  setTimeout(() => glow.classList.remove("winGlow"), 300);
 }
 
 function lose(playerchoice, computerchoice) {
   computerScore++;
   computerScoreElement.textContent = computerScore;
   result.textContent = `${computerchoice} beats ${playerchoice}. You lose!`;
+  glow = document.getElementById(playerchoice)
+  glow.classList.add("loseGlow");
+  setTimeout(() => glow.classList.remove("loseGlow"), 300);
 }
 
 function draw(playerchoice) {
   result.textContent = `You both played ${playerchoice}. It's a draw!`;
+  glow = document.getElementById(playerchoice)
+  glow.classList.add("drawGlow");
+  setTimeout(() => glow.classList.remove("drawGlow"), 300);
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -53,17 +61,35 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
   if (playerSelection === computerSelection) {
     draw(playerSelection);
-  } else if (playerSelection === "charmander" && computerSelection === "squirtle") {
+  } else if (
+    playerSelection === "charmander" &&
+    computerSelection === "squirtle"
+  ) {
     lose(playerSelection, computerSelection);
-  } else if (playerSelection === "charmander" && computerSelection === "bulbasaur") {
+  } else if (
+    playerSelection === "charmander" &&
+    computerSelection === "bulbasaur"
+  ) {
     win(playerSelection, computerSelection);
-  } else if (playerSelection === "bulbasaur" && computerSelection === "squirtle") {
+  } else if (
+    playerSelection === "bulbasaur" &&
+    computerSelection === "squirtle"
+  ) {
     win(playerSelection, computerSelection);
-  } else if (playerSelection === "bulbasaur" && computerSelection === "charmander") {
+  } else if (
+    playerSelection === "bulbasaur" &&
+    computerSelection === "charmander"
+  ) {
     lose(playerSelection, computerSelection);
-  } else if (playerSelection === "squirtle" && computerSelection === "bulbasaur") {
+  } else if (
+    playerSelection === "squirtle" &&
+    computerSelection === "bulbasaur"
+  ) {
     lose(playerSelection, computerSelection);
-  } else if (playerSelection === "squirtle" && computerSelection === "charmander") {
+  } else if (
+    playerSelection === "squirtle" &&
+    computerSelection === "charmander"
+  ) {
     win(playerSelection, computerSelection);
   }
 }
