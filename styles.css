@@ -93,17 +93,17 @@ header h2 {
   transition: all 0.3s ease;
 }
 
-#rock:hover {
+#charmander:hover {
   cursor: pointer;
   background: rgb(255, 88, 46);
 }
 
-#paper:hover {
+#squirtle:hover {
   cursor: pointer;
   background: rgb(46, 231, 255);
 }
 
-#scissors:hover {
+#bulbasaur:hover {
   cursor: pointer;
   background: rgb(135, 251, 124);
 }

@@ -1,27 +1,70 @@
+let playerScore = 0;
+let computerScore = 0;
+const playerScoreElement = document.querySelector("#playerScore");
+const computerScoreElement = document.querySelector("#computerScore");
+const scoreboard = document.querySelector(".scoreboard");
+const result = document.querySelector(".result p");
+const charmander = document.querySelector("#charmander");
+const squirtle = document.querySelector("#squirtle");
+const bulbasaur = document.querySelector("#bulbasaur");
+
+function main() {
+  charmander.addEventListener("click", function () {
+    playRound("charmander", computerPlay());
+  });
+
+  squirtle.addEventListener("click", function () {
+    playRound("squirtle", computerPlay());
+  });
+
+  bulbasaur.addEventListener("click", function () {
+    playRound("bulbasaur", computerPlay());
+  });
+}
+
+main();
+
 function computerPlay() {
-  // computerPlay(): gets the computer play move (rock/paper/scissors).
-  const rps = ["rock", "paper", "scissors"];
+  // computerPlay(): gets the computer play move (charmander/squirtle/bulbasaur).
+  const rps = ["charmander", "squirtle", "bulbasaur"];
   return rps[Math.floor(Math.random() * rps.length)];
+}
+
+
+function win(playerchoice, computerchoice) {
+  playerScore++;
+  playerScoreElement.textContent = playerScore;
+  result.textContent = `${playerchoice} beats ${computerchoice}. You win!`;
+}
+
+function lose(playerchoice, computerchoice) {
+  computerScore++;
+  computerScoreElement.textContent = computerScore;
+  result.textContent = `${computerchoice} beats ${playerchoice}. You lose!`;
+}
+
+function draw(playerchoice) {
+  result.textContent = `You both played ${playerchoice}. It's a draw!`;
 }
 
 function playRound(playerSelection, computerSelection) {
   // playRound(playerSelection, computerSelection): gets the winner of the round.
-  // using .toLowerCase() to accept any form of input from user (i.e: rock/ROCK/RoCk)
+  // using .toLowerCase() to accept any form of input from user (i.e: charmander/charmander/charmander)
   playerSelection = playerSelection.toLowerCase();
   if (playerSelection === computerSelection) {
-    return `You both played ${playerSelection}! IT'S A DRAW!`;
-  } else if (playerSelection === "rock" && computerSelection === "paper") {
-    return "Computer played paper! YOU LOST!";
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return "Computer played scissors! YOU WON!";
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return "Computer played paper! YOU WON!";
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    return "Computer played rock! YOU LOST!";
-  } else if (playerSelecti0on === "paper" && computerSelection === "scissors") {
-    return "Computer played scissors! YOU LOST!";
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return "Computer played rock! YOU WON!";
+    draw(playerSelection);
+  } else if (playerSelection === "charmander" && computerSelection === "squirtle") {
+    lose(playerSelection, computerSelection);
+  } else if (playerSelection === "charmander" && computerSelection === "bulbasaur") {
+    win(playerSelection, computerSelection);
+  } else if (playerSelection === "bulbasaur" && computerSelection === "squirtle") {
+    win(playerSelection, computerSelection);
+  } else if (playerSelection === "bulbasaur" && computerSelection === "charmander") {
+    lose(playerSelection, computerSelection);
+  } else if (playerSelection === "squirtle" && computerSelection === "bulbasaur") {
+    lose(playerSelection, computerSelection);
+  } else if (playerSelection === "squirtle" && computerSelection === "charmander") {
+    win(playerSelection, computerSelection);
   }
 }
 
