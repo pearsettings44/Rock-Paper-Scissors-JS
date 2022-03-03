@@ -2,6 +2,11 @@
 @import url("http://fonts.cdnfonts.com/css/pokemon-solid");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+@font-face {
+  font-family: "PK";
+  src: url("./font/Pokemon\ Solid.ttf") format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +29,7 @@ header {
 header h1 {
   color: rgb(13, 13, 51);
   text-align: center;
-  font-family: "Pokemon Solid", "Press Start 2P", cursive, sans-serif;
+  font-family: "PK", "Pokemon Solid", "Press Start 2P", cursive, sans-serif;
   font-size: 100px;
   font-weight: 400;
   color: rgb(255, 255, 206);
@@ -35,7 +40,7 @@ header h2 {
   margin-top: 0;
   font-size: 50px;
   text-align: center;
-  font-family: "Pokemon Solid", "Press Start 2P", cursive, sans-serif;
+  font-family: "PK", "Pokemon Solid", "Press Start 2P", cursive, sans-serif;
   color: rgb(255, 255, 103);
   text-shadow: 10px 4px 20px rgb(0, 0, 0);
   font-weight: 400;
