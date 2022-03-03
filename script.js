@@ -17,6 +17,7 @@ function computerPlay() {
 }
 
 function win(playerchoice, computerchoice) {
+  // win(playerchoice, computerchoice): increments playerScore and shows the round result.
   playerScore++;
   playerScoreElement.textContent = playerScore;
   result.textContent = `${playerchoice} beats ${computerchoice}. You win!`;
@@ -28,6 +29,7 @@ function win(playerchoice, computerchoice) {
 }
 
 function lose(playerchoice, computerchoice) {
+  // lose(playerchoice, computerchoice): increments computerScore and shows the round result.
   computerScore++;
   computerScoreElement.textContent = computerScore;
   result.textContent = `${computerchoice} beats ${playerchoice}. You lose!`;
@@ -39,6 +41,7 @@ function lose(playerchoice, computerchoice) {
 }
 
 function draw(playerchoice) {
+  // draw(playerchoice): Shows the round result(draw).
   result.textContent = `You both played ${playerchoice}. It's a draw!`;
   glow = document.getElementById(playerchoice);
   glow.classList.add("drawGlow");
@@ -85,6 +88,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function main() {
+  // Gets the player choice on click.
   charmander.addEventListener("click", function () {
     playRound("charmander", computerPlay());
   });
