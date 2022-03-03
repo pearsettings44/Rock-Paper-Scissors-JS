@@ -7,6 +7,8 @@ const result = document.querySelector(".result p");
 const charmander = document.querySelector("#charmander");
 const squirtle = document.querySelector("#squirtle");
 const bulbasaur = document.querySelector("#bulbasaur");
+const playerBadge = document.querySelector("#playerBadge");
+const computerBadge = document.querySelector("#computerBadge");
 
 function computerPlay() {
   // computerPlay(): gets the computer play move (charmander/squirtle/bulbasaur).
@@ -21,6 +23,9 @@ function win(playerchoice, computerchoice) {
   glow = document.getElementById(playerchoice);
   glow.classList.add("winGlow");
   setTimeout(() => glow.classList.remove("winGlow"), 300);
+  playerBadge.classList.add("winBadge")
+  setTimeout(() => playerBadge.classList.remove("winBadge"), 300);
+
 }
 
 function lose(playerchoice, computerchoice) {
@@ -30,6 +35,8 @@ function lose(playerchoice, computerchoice) {
   glow = document.getElementById(playerchoice);
   glow.classList.add("loseGlow");
   setTimeout(() => glow.classList.remove("loseGlow"), 300);
+  computerBadge.classList.add("winBadge")
+  setTimeout(() => computerBadge.classList.remove("winBadge"), 300);
 }
 
 function draw(playerchoice) {
