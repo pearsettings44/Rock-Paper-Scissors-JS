@@ -8,22 +8,6 @@ const charmander = document.querySelector("#charmander");
 const squirtle = document.querySelector("#squirtle");
 const bulbasaur = document.querySelector("#bulbasaur");
 
-function main() {
-  charmander.addEventListener("click", function () {
-    playRound("charmander", computerPlay());
-  });
-
-  squirtle.addEventListener("click", function () {
-    playRound("squirtle", computerPlay());
-  });
-
-  bulbasaur.addEventListener("click", function () {
-    playRound("bulbasaur", computerPlay());
-  });
-}
-
-main();
-
 function computerPlay() {
   // computerPlay(): gets the computer play move (charmander/squirtle/bulbasaur).
   const rps = ["charmander", "squirtle", "bulbasaur"];
@@ -93,6 +77,22 @@ function playRound(playerSelection, computerSelection) {
     win(playerSelection, computerSelection);
   }
 }
+
+function main() {
+  charmander.addEventListener("click", function () {
+    playRound("charmander", computerPlay());
+  });
+
+  squirtle.addEventListener("click", function () {
+    playRound("squirtle", computerPlay());
+  });
+
+  bulbasaur.addEventListener("click", function () {
+    playRound("bulbasaur", computerPlay());
+  });
+}
+
+main();
 
 function game() {
   // game(): plays 5 win or lose rounds.
